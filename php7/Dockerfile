@@ -9,4 +9,4 @@ COPY ./index.php	/var/www
 COPY ./default.conf /etc/nginx/conf.d/
 COPY ./nginx.conf	/etc/nginx/
 EXPOSE 80
-ENTRYPOINT ["bash", "init.sh"]
+ENTRYPOINT ["/bin/bash", "init.sh"]
