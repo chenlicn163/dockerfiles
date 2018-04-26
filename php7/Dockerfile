@@ -10,4 +10,4 @@ COPY ./default.conf /etc/nginx/conf.d/
 COPY ./nginx.conf	/etc/nginx/
 COPY ./init.sh      /var
 EXPOSE 80
-#ENTRYPOINT ["/bin/bash", "/var/init.sh"]
+ENTRYPOINT ["/bin/bash", "/var/init.sh"]
