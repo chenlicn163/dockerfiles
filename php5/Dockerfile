@@ -9,7 +9,7 @@ COPY ./index.php	/var/www
 COPY ./default.conf /etc/nginx/conf.d
 COPY ./nginx.conf	/etc/nginx
 COPY ./php.ini     /etc
-COPY ./www.ini     /etc/php-fpm.d
+COPY ./www.conf     /etc/php-fpm.d
 COPY ./init.sh      /var
 EXPOSE 80
 ENTRYPOINT ["/bin/bash", "/var/init.sh"]
