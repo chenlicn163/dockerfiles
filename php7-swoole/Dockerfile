@@ -25,6 +25,14 @@ RUN ./configure --with-php-config=/usr/local/soft/php/bin/php-config --with-curl
 RUN mkdir -p /usr/local/soft/php/etc/conf.d
 RUN echo extension=curl.so >/usr/local/soft/php/etc/conf.d/curl.ini
 
+
+#php-openssl扩展
+WORKDIR /data/php-7.2.8/ext/openssl
+RUN cp ./config0.m4 ./config.m4
+RUN /usr/local/soft/php/bin/phpize
+RUN ./configure --with-php-config=/usr/local/soft/php/bin/php-config &&  make && make install
+RUN echo extension=openssl.so >/usr/local/soft/php/etc/conf.d/openssl.ini
+
 #安装phpredis 扩展
 RUN wget -P /data -O /data/phpredis.zip https://github.com/phpredis/phpredis/archive/develop.zip
 RUN unzip /data/phpredis.zip -d /data
