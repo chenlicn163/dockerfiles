@@ -10,8 +10,8 @@ RUN yum -y install gcc-c++ libxml2 libxml2-devel autoconf unzip
 
 RUN wget -P /data https://curl.haxx.se/download/curl-7.61.0.tar.gz 
 RUN tar -zxvf /data/curl-7.61.0.tar.gz -C /data
-RUN /data/curl-7.61.0/configure --prefix=/usr/local/soft/curl
-RUN cd /data/curl-7.61.0 && make && make install
+WORKDIR /data/curl-7.61.0/
+RUN ./configure --prefix=/usr/local/soft/curl && make && make install
 
 #执行编译
 WORKDIR /data/php-7.2.8/
