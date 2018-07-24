@@ -6,7 +6,7 @@ RUN wget -P /data http://cn2.php.net/distributions/php-7.2.8.tar.gz
 RUN tar -zxvf /data/php-7.2.8.tar.gz -C /data
 
 #安装编译环境
-RUN yum -y install gcc-c++ libxml2 libxml2-devel autoconf unzip
+RUN yum -y install gcc-c++ libxml2 libxml2-devel autoconf unzip openssl openssl-devel
 
 RUN wget -P /data https://curl.haxx.se/download/curl-7.61.0.tar.gz 
 RUN tar -zxvf /data/curl-7.61.0.tar.gz -C /data
