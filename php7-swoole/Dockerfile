@@ -55,7 +55,7 @@ RUN ./configure --with-php-config=/usr/local/soft/php/bin/php-config --enable-as
 RUN echo extension=swoole.so >/usr/local/soft/php/etc/conf.d/swoole.ini
 
 #composer
-RUN /usr/local/soft/curl/bin/curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/ && composer config -g repo.packagist composer https://packagist.phpcomposer.com
+RUN /usr/local/soft/curl/bin/curl -sS https://getcomposer.org/installer | /usr/local/soft/php/bin/php && mv composer.phar /usr/local/bin/ && composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 #环境变量
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
