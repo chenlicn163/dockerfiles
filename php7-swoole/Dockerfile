@@ -25,7 +25,6 @@ RUN ./configure --with-php-config=/usr/local/soft/php/bin/php-config --with-curl
 RUN mkdir -p /usr/local/soft/php/etc/conf.d
 RUN echo extension=curl.so >/usr/local/soft/php/etc/conf.d/curl.ini
 
-
 #php-openssl扩展
 WORKDIR /data/php-7.2.8/ext/openssl
 RUN cp ./config0.m4 ./config.m4
@@ -54,6 +53,9 @@ WORKDIR /data/swoole
 RUN /usr/local/soft/php/bin/phpize
 RUN ./configure --with-php-config=/usr/local/soft/php/bin/php-config --enable-async-redis && make && make install
 RUN echo extension=swoole.so >/usr/local/soft/php/etc/conf.d/swoole.ini
+
+#composer
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/ && curl -sS https://getcomposer.org/installer | php
 
 #环境变量
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
