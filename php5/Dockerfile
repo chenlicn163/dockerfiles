@@ -5,11 +5,11 @@ php56w-ldap.x86_64 php56w-mbstring.x86_64 php56w-mcrypt.x86_64 php56w-mysql.x86_
 php56w-pdo.x86_64 php56w-opcache.x86_64  php56w-xml.x86_64 php56w-fpm nginx
 RUN mkdir -p /var/www && mkdir -p /run
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-COPY ./index.php	/var/www
-COPY ./default.conf /etc/nginx/conf.d
-COPY ./nginx.conf	/etc/nginx
-COPY ./php.ini     /etc
-COPY ./www.conf     /etc/php-fpm.d
+COPY ./nginx/default.conf /etc/nginx/conf.d
+COPY ./nginx/nginx.conf	/etc/nginx
+COPY ./nginx/www.conf     /etc/php-fpm.d
+COPY ./php/php.ini     /etc
+COPY ./php/index.php    /var/www
 COPY ./init.sh      /var
 EXPOSE 80
 ENTRYPOINT ["/bin/bash", "/var/init.sh"]

@@ -1,5 +1,4 @@
 #!/bin/bash
 
-/etc/rc.d/init.d/nginx start
-/etc/rc.d/init.d/php-fpm start
-/bin/bash
+/usr/sbin/nginx
+/usr/sbin/php-fpm -F
