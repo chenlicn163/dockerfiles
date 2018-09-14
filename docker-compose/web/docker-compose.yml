@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  company-web: 
+    image: hub.c.163.com/xychenli/php5:develop
+    ports:
+         - "80:80"
+    networks:
+         - company-bridge
+    links:
+      - company-redis
+    volumes:
+         - /Users/chen/www:/var/www
+         - ./conf.d:/etc/nginx/conf.d
+
+  company-redis:
+    image: redis
+    networks:
+        - company-bridge
+networks:
+    company-bridge:
+        driver: bridge
