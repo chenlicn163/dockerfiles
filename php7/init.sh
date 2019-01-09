@@ -1,5 +1,5 @@
 #!/bin/bash
 
-/etc/rc.d/init.d/nginx start
-/etc/rc.d/init.d/php-fpm start
-/bin/bash
+/usr/sbin/sshd          #启动ssh
+/usr/sbin/nginx     #启动功nginx
+/usr/sbin/php-fpm -F  #启动功php-fpm
