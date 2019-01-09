@@ -11,8 +11,8 @@ services:
       - company-redis
       - company-mysql
     volumes:
-         - /Users/chen/data/www:/var/www
-         - ./conf.d:/etc/nginx/conf.d
+         - /Users/chen/data/www:/var/www:cached
+         - ./conf.d:/etc/nginx/conf.d:cached
 
   company-redis:
     image: redis
